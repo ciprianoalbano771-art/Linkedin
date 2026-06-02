@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaga de Emprego — Encontra o teu emprego em Moçambique</title>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       GA4 SNIPPET — Measurement ID: G-X3DFMNDEBS (active)
+       Marcar "generate_lead" como Key Event:
+       GA4 Admin → Data Display → Events → toggle Key Event.
+       Dimensões personalizadas (Admin → Custom Definitions, Event-scoped):
+         · traffic_action · conversion_source · cta_location
+       ══════════════════════════════════════════════════════════════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3DFMNDEBS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-X3DFMNDEBS');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --linkedin: #0A66C2;
+      --linkedin-dark: #004182;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #1EB85A;
+      --red: #D0021B;
+      --bg: #F5F5F7;
+      --surface: #FFFFFF;
+      --surface-2: #F0F0F2;
+      --border: rgba(0,0,0,0.08);
+      --text-primary: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 2px 20px rgba(0,0,0,0.07);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+      padding: 52px 20px 120px; /* bottom acomoda a barra fixa (~80px) */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* ── BRAND (topo) — símbolo LinkedIn original + nome ── */
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-name { font-size: 18px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em; }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 14px 6px 10px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow);
+    }
+
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      flex-shrink: 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.5; transform:scale(0.8); }
+    }
+
+    /* ── HERO ── */
+    .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    h1 { font-size: clamp(34px, 9vw, 52px); font-weight: 600; line-height: 1.08; letter-spacing: -0.03em; }
+    h1 em { font-style: normal; color: var(--red); }
+    .hero-sub { font-size: 17px; line-height: 1.6; color: var(--text-secondary); font-weight: 400; max-width: 340px; }
+
+    /* ── STATS ── */
+    .stats { display:flex; gap:10px; width:100%; }
+    .stat {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 16px 14px; flex: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      box-shadow: var(--shadow);
+    }
+    .stat-num { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+    .stat-label { font-size: 11px; color: var(--text-secondary); text-align: center; line-height: 1.3; }
+
+    /* ── CTA ── */
+    .cta-group { display:flex; flex-direction:column; gap:11px; width:100%; align-items:center; }
+
+    /* Símbolo LinkedIn original — sozinho, em cima da barra */
+    .linkedin-mark { display: flex; justify-content: center; align-items: center; padding: 2px 0 4px; }
+
+    /* VERDE — Barra do WhatsApp (acesso ao grupo) */
+    .btn-whatsapp {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; padding: 17px 20px;
+      background: var(--whatsapp); color: #fff;
+      font-family: var(--font); font-size: 16px; font-weight: 600;
+      border: none; border-radius: var(--radius-sm); cursor: pointer; text-decoration: none;
+      transition: background .18s, transform .13s, box-shadow .18s;
+      box-shadow: 0 4px 18px rgba(37,211,102,.30);
+      letter-spacing: -.01em;
+    }
+    .btn-whatsapp:hover { background:var(--whatsapp-dark); transform:translateY(-1px); box-shadow:0 6px 24px rgba(37,211,102,.38); }
+    .btn-whatsapp:active { transform:translateY(0); }
+
+    .cta-microcopy { text-align: center; font-size: 11.5px; color: var(--text-secondary); margin-top: -4px; }
+
+    /* GHOST — Ver Vagas (abre popup) */
+    .btn-jobs {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; padding: 16px 20px;
+      background: var(--surface); color: var(--text-primary);
+      font-family: var(--font); font-size: 15px; font-weight: 500;
+      border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer;
+      transition: background .15s, transform .13s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      letter-spacing: -.01em;
+    }
+    .btn-jobs:hover { background:#ECECEC; transform:translateY(-1px); }
+    .btn-jobs:active { transform:translateY(0); }
+
+    /* ── PROOF ── */
+    .proof { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+    .proof-stars { font-size: 14px; color: #F5A623; letter-spacing: 1px; }
+    .proof-stars span { font-size: 12px; color: var(--text-secondary); font-weight: 500; margin-left: 5px; letter-spacing: 0; }
+    .proof-row { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--text-secondary); }
+    .proof-icons { display:flex; align-items:center; }
+    .proof-icons span {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: #E8E8ED; border: 2px solid var(--surface);
+      display: flex; align-items: center; justify-content: center; margin-left: -7px;
+    }
+    .proof-icons span:first-child { margin-left:0; }
+
+    /* ── OVERLAY ── */
+    .overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.32);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      z-index: 100;
+      display: flex; align-items: flex-end; justify-content: center;
+      padding: 12px; opacity: 0; pointer-events: none;
+      transition: opacity .22s ease;
+    }
+    .overlay.active { opacity:1; pointer-events:all; }
+
+    .popup {
+      background: var(--surface); border-radius: 22px;
+      padding: 32px 24px 28px; width: 100%; max-width: 480px;
+      display: flex; flex-direction: column; align-items: center; gap: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.16);
+      transform: translateY(28px);
+      transition: transform .3s cubic-bezier(0.34,1.45,0.64,1);
+    }
+    .overlay.active .popup { transform:translateY(0); }
+
+    .popup-icon {
+      width: 54px; height: 54px; border-radius: 14px;
+      background: rgba(37,211,102,0.10);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .popup h2 { font-size: 20px; font-weight: 600; text-align: center; line-height: 1.25; letter-spacing: -.02em; }
+    .popup p { font-size: 14.5px; color: var(--text-secondary); text-align: center; line-height: 1.65; max-width: 340px; }
+    .popup p strong { color: var(--text-primary); font-weight:600; }
+    .popup-divider { width:100%; height:1px; background:var(--border); }
+    .popup-actions { display:flex; flex-direction:column; gap:10px; width:100%; }
+
+    .popup-btn-primary {
+      display: flex; align-items:center; justify-content:center; gap:8px;
+      width:100%; padding:15px 18px;
+      background: var(--whatsapp); color:#fff;
+      font-family:var(--font); font-size:15px; font-weight:600;
+      border:none; border-radius:var(--radius-sm); cursor:pointer;
+      transition: background .15s, transform .12s; letter-spacing:-.01em;
+    }
+    .popup-btn-primary:hover { background:var(--whatsapp-dark); transform:translateY(-1px); }
+    .popup-btn-primary:active { transform:translateY(0); }
+
+    .popup-btn-secondary {
+      width:100%; padding:14px 18px;
+      background:var(--surface-2); color:var(--text-secondary);
+      font-family:var(--font); font-size:14px; font-weight:500;
+      border:1px solid var(--border); border-radius:var(--radius-sm); cursor:pointer;
+      transition: background .15s, color .15s; letter-spacing:-.01em;
+    }
+    .popup-btn-secondary:hover { background:#E8E8ED; color:var(--text-primary); }
+
+    /* ── IMAGENS INTEGRADAS ── */
+    .brand-logo { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; display: block; }
+
+    .whatsapp-banner {
+      width: 100%; max-width: 380px; border-radius: var(--radius-sm); overflow: hidden;
+      box-shadow: var(--shadow); margin: 0 auto 2px;
+    }
+    .whatsapp-banner img { width: 100%; height: 120px; display: block; object-fit: cover; }
+
+    .pay-banner {
+      width: 100%; max-width: 240px; border-radius: 16px; overflow: hidden;
+      background: var(--surface); margin: 0 auto; flex-shrink: 0;
+    }
+    .pay-banner img { width: 100%; height: auto; display: block; max-height: 150px; object-fit: contain; }
+
+    /* ── AVISO DE PAGAMENTO ── */
+    .pay-popup { gap: 14px; max-height: 88dvh; overflow-y: auto; }
+
+    .pay-benefits {
+      list-style: none; width: 100%;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .pay-benefits li {
+      position: relative; padding-left: 26px;
+      font-size: 14px; line-height: 1.45; color: var(--text-primary);
+      text-align: left;
+    }
+    .pay-benefits li::before {
+      content: "✓"; position: absolute; left: 0; top: 0;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(37,211,102,0.14); color: var(--whatsapp-dark);
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .pay-price {
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      background: var(--red); border: 1px solid var(--red);
+      border-radius: var(--radius-sm); padding: 14px 20px; width: 100%; flex-shrink: 0;
+    }
+    .pay-price-value { font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #fff; }
+    .pay-price-label { font-size: 12px; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: .04em; }
+
+    .pay-note { font-size: 13px !important; color: var(--text-secondary); }
+
+    /* ── PARCERIAS ── */
+    .partners {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      width: 100%;
+    }
+    .partners-title {
+      font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .partners-grid {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+      width: 100%;
+    }
+    .partner-chip {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 10px 16px;
+      font-size: 13px; font-weight: 600; color: var(--text-primary);
+      letter-spacing: -.01em; box-shadow: var(--shadow);
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 48px; min-width: 96px;
+    }
+    .partner-chip img {
+      max-height: 26px; max-width: 110px; width: auto; height: auto;
+      object-fit: contain; display: block;
+    }
+    .partners-note { font-size: 12px; color: var(--text-secondary); text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      font-size:11.5px; color:var(--text-secondary);
+      text-align:center; opacity:.55;
+      display: flex; flex-direction: column; gap: 6px; align-items: center;
+    }
+    footer a { color: var(--text-secondary); text-decoration: underline; text-decoration-color: rgba(110,110,115,0.4); text-underline-offset: 2px; }
+    footer a:hover { opacity: 1; text-decoration-color: var(--text-secondary); }
+
+    /* ── STICKY BOTTOM CTA BAR ── */
+    .sticky-cta-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding: 12px 20px; padding-bottom: calc(12px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.08);
+      z-index: 49; transform: translateY(110%);
+      transition: transform .4s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+    }
+    .sticky-cta-bar.visible { transform: translateY(0); }
+
+    .sticky-btn-whatsapp {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; max-width: 480px; padding: 15px 20px;
+      background: var(--whatsapp); color: #fff;
+      font-family: var(--font); font-size: 15px; font-weight: 600;
+      border: none; border-radius: var(--radius-sm); cursor: pointer; text-decoration: none;
+      transition: background .15s, transform .12s;
+      box-shadow: 0 3px 14px rgba(37,211,102,.28);
+      letter-spacing: -.01em;
+    }
+    .sticky-btn-whatsapp:hover { background: var(--whatsapp-dark); transform: translateY(-1px); }
+    .sticky-btn-whatsapp:active { transform: translateY(0); }
+
+    .sticky-microcopy { font-size: 11px; color: var(--text-secondary); text-align: center; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up { opacity:0; transform:translateY(16px); animation: fadeUp .55s ease forwards; }
+    .fade-up:nth-child(1) { animation-delay:.04s; }
+    .fade-up:nth-child(2) { animation-delay:.12s; }
+    .fade-up:nth-child(3) { animation-delay:.20s; }
+    .fade-up:nth-child(4) { animation-delay:.28s; }
+    .fade-up:nth-child(5) { animation-delay:.34s; }
+    .fade-up:nth-child(6) { animation-delay:.40s; }
+    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <main class="page">
+
+    <!-- SÍMBOLO DO TOPO — LinkedIn original + nome da marca -->
+    <a href="https://www.vagademprego.com" aria-label="Vaga de Emprego" class="brand fade-up">
+      <img src="LOGO.jpg" alt="LinkedIn" class="brand-logo" width="34" height="34">
+      <span class="brand-name">Vaga de Emprego</span>
+    </a>
+
+    <!-- BADGE -->
+    <div class="badge fade-up">
+      <div class="badge-dot"></div>
+      Plataforma líder de emprego em Moçambique
+    </div>
+
+    <!-- HERO -->
+    <section class="hero fade-up">
+      <h1>O teu próximo<br>emprego está <em>aqui.</em></h1>
+      <p class="hero-sub">
+        Vagas actualizadas todos os dias. Mais de 100 mil profissionais moçambicanos já confiam na plataforma.
+      </p>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats fade-up">
+      <div class="stat">
+        <div class="stat-num">100K+</div>
+        <div class="stat-label">Seguidores activos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">495+</div>
+        <div class="stat-label">CVs entregues</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Diário</div>
+        <div class="stat-label">Novas vagas</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-group fade-up" id="cta-group">
+
+      <!-- 1) FOTO DA PARTE DO WHATSAPP — banner em cima da barra verde -->
+      <div class="whatsapp-banner">
+        <img src="PARTE%20DE%20WHATSAPP.jpg" alt="Grupo de vagas no LinkedIn" loading="lazy">
+      </div>
+
+      <!-- 2) BARRA DO WHATSAPP (verde) — acesso ao grupo -->
+      <a class="btn-whatsapp" href="#" id="btn-channel-main" onclick="openPaymentPopup(event, 'hero')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+        </svg>
+        Acesso ao grupo de vagas
+      </a>
+
+      <p class="cta-microcopy">Grátis • Sem spam • Menos de 1 minuto</p>
+
+      <!-- 3) GHOST — abre popup -->
+      <button class="btn-jobs" onclick="showPopup()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+        </svg>
+        Ver vagas disponíveis
+      </button>
+
+    </div>
+
+    <!-- SOCIAL PROOF -->
+    <div class="proof fade-up">
+      <div class="proof-stars">
+        ★★★★★
+        <span>4.8 / 5.0</span>
+      </div>
+      <div class="proof-row">
+        <div class="proof-icons">
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#6E6E73" aria-hidden="true">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"></path>
+            </svg>
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#8E8E93" aria-hidden="true">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"></path>
+            </svg>
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#AEAEB2" aria-hidden="true">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"></path>
+            </svg>
+          </span>
+        </div>
+        Mais de <strong style="color:var(--text-primary);margin:0 3px;font-weight:600;">43 mil</strong> profissionais e empregadores já fazem parte do grupo
+      </div>
+    </div>
+
+    <!-- PARCERIAS -->
+    <section class="partners fade-up">
+      <p class="partners-title">Parcerias de confiança</p>
+      <div class="partners-grid">
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Cervejas_de_Mocambique_logo.png" alt="Cervejas 2M" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Vodacom-2011.png" alt="Vodacom" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Millennium_bim_Logotipo.png" alt="Millennium bim" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/en/8/86/Standard_Bank_of_South_Africa_logo.png" alt="Standard Bank" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://images.seeklogo.com/logo-png/43/1/electricidade-de-mocambique-edm-logo-png_seeklogo-438151.png" alt="EDM" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="fade-up">
+      <span>vagademprego.com • Moçambique</span>
+      <a href="/politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>
+    </footer>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOMO POPUP
+       ============================================================ -->
+  <div class="overlay" id="popup-overlay" onclick="handleOverlayClick(event)">
+    <div class="popup" id="popup-card">
+
+      <div class="popup-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+      </div>
+
+      <h2>Espera — não percas as melhores vagas</h2>
+
+      <p>
+        As vagas mais concorridas chegam <strong>primeiro ao nosso grupo de WhatsApp</strong>.
+        Dezenas de candidatos já seguiram hoje.
+        <strong>Não sejas o último a saber.</strong>
+      </p>
+
+      <div class="popup-divider"></div>
+
+      <div class="popup-actions">
+
+        <button class="popup-btn-primary" onclick="joinChannel(event)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+          </svg>
+          Quero entrar no grupo primeiro
+        </button>
+
+        <button class="popup-btn-secondary" onclick="proceedToJobs()">
+          Continuar para as vagas mesmo assim
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       AVISO IMPORTANTE — INSCRIÇÃO 199 MZN (junte-se ao grupo)
+       ============================================================ -->
+  <div class="overlay" id="pay-overlay" onclick="handlePayOverlayClick(event)">
+    <div class="popup pay-popup" id="pay-card">
+
+      <div class="pay-banner">
+        <img src="JUNTE%20AO%20GRUPO%20WHTSAPP.webp" alt="Junte-se ao grupo de vagas" loading="lazy">
+      </div>
+
+      <h2>🔒 Inscrição para Entrar no Grupo</h2>
+
+      <p>
+        Para fazer parte da nossa comunidade, é necessária uma
+        <strong>inscrição única no valor de 199 MZN</strong>.
+      </p>
+
+      <p>
+        O valor da inscrição é utilizado para cobrir os custos operacionais do grupo,
+        incluindo o envio e processamento de documentos, manutenção da plataforma,
+        gestão da comunidade e continuidade dos serviços prestados aos membros.
+      </p>
+
+      <ul class="pay-benefits">
+        <li>Inscrição única (sem mensalidades)</li>
+        <li>Acesso exclusivo ao grupo</li>
+        <li>Processamento e envio de documentos pela nossa equipa</li>
+        <li>Manutenção e funcionamento contínuo da comunidade</li>
+        <li>Suporte disponível após a confirmação do pagamento</li>
+      </ul>
+
+      <div class="pay-price">
+        <span class="pay-price-label">Valor da inscrição</span>
+        <span class="pay-price-value">199 MZN</span>
+      </div>
+
+      <p>
+        Após a confirmação do pagamento, o seu acesso será liberado e o suporte ficará
+        disponível para esclarecer quaisquer dúvidas relacionadas à sua inscrição, aos
+        documentos enviados e ao funcionamento do grupo.
+      </p>
+
+      <p class="pay-note">
+        A nossa prioridade é trabalhar com <strong>transparência, organização e
+        compromisso</strong>, garantindo que todos os membros recebam o acompanhamento
+        necessário após a adesão.
+      </p>
+
+      <div class="popup-divider"></div>
+
+      <div class="popup-actions">
+        <button class="popup-btn-primary" onclick="goToCheckout()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="1" y="4" width="22" height="16" rx="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          Juntar-se agora
+        </button>
+
+        <button class="popup-btn-secondary" onclick="closePayPopup()">
+          Agora não
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       STICKY BOTTOM CTA BAR — barra do WhatsApp
+       ============================================================ -->
+  <div class="sticky-cta-bar" id="sticky-cta-bar">
+    <a class="sticky-btn-whatsapp" id="sticky-btn-channel" href="#" onclick="openPaymentPopup(event, 'sticky_bar')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+      </svg>
+      Entrar no grupo de vagas
+    </a>
+    <p class="sticky-microcopy">Grátis • 43 mil seguidores no grupo</p>
+  </div>
+
+
+  <!-- ============================================================
+       JS — MUDA APENAS OS VALORES NO TOPO
+       ============================================================ -->
+  <script>
+    /* ════════════════════════════════════════════════════════════
+       LINK DO CANAL DE WHATSAPP — VdE / Vaga de Emprego Moçambique
+       Ao clicar, abre o grupo no WhatsApp com a mensagem de
+       boas-vindas, os 43 mil seguidores e o botão "Ver no WhatsApp".
+       (Link universal — funciona em telemóvel e desktop)
+       ════════════════════════════════════════════════════════════ */
+    const WHATSAPP_CHANNEL_URL = 'https://whatsapp.com/channel/0029Va76IHo2UPB7w5C2tM3c';
+
+    /* A tua página de vagas (fallback do popup) */
+    const JOB_POSTS_URL = 'https://www.vagademprego.com/diversas-vagas-abertas-para-sua-candidatura-em-mocambique-nao-perca-esta-oportunidade/';
+
+    /* ════════════════════════════════════════════════════════════
+       CHECKOUT DA INSCRIÇÃO — 199 MZN (RatixPay)
+       ════════════════════════════════════════════════════════════ */
+    const CHECKOUT_URL = 'https://ratixpay.co.mz/checkout.html?produto=52RTPL3Z1';
+
+    /* ── GA4 HELPERS ── */
+    function ga4(event, params) {
+      if (typeof gtag === 'function') gtag('event', event, params);
+    }
+
+    function trackHeroCTA() {
+      ga4('cta_click', {
+        cta_location: 'hero',
+        cta_text: 'Acesso ao grupo de vagas',
+        traffic_action: 'ads_cta_followed',
+        conversion_source: 'hero_whatsapp_channel'
+      });
+      ga4('generate_lead', {
+        form_type: 'whatsapp_channel_follow',
+        conversion_source: 'hero_whatsapp_channel',
+        traffic_action: 'ads_cta_followed',
+        value: 0, currency: 'MZN'
+      });
+    }
+
+    function trackStickyCTA() {
+      ga4('cta_click', {
+        cta_location: 'sticky_bar',
+        cta_text: 'Entrar no grupo de vagas',
+        traffic_action: 'ads_cta_followed',
+        conversion_source: 'sticky_whatsapp_channel'
+      });
+      ga4('generate_lead', {
+        form_type: 'whatsapp_channel_follow',
+        conversion_source: 'sticky_whatsapp_channel',
+        traffic_action: 'ads_cta_followed',
+        value: 0, currency: 'MZN'
+      });
+    }
+
+    /* ── POPUP ── */
+    function showPopup() {
+      document.getElementById('popup-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      ga4('popup_view', {
+        popup_trigger: 'btn_ver_vagas',
+        popup_type: 'fomo_whatsapp_channel',
+        traffic_action: 'ads_cta_followed'
+      });
+    }
+
+    function closePopup() {
+      document.getElementById('popup-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function joinChannel(e) {
+      if (e) e.preventDefault();
+      closePopup();
+      openPaymentPopup(null, 'fomo_popup');
+    }
+
+    /* ── AVISO IMPORTANTE / INSCRIÇÃO 199 MZN ── */
+    function openPaymentPopup(e, source) {
+      if (e) e.preventDefault();
+      ga4('cta_click', {
+        cta_location: source || 'unknown',
+        cta_text: 'Acesso ao grupo de vagas',
+        traffic_action: 'ads_cta_followed',
+        conversion_source: 'payment_warning'
+      });
+      ga4('view_payment_notice', {
+        conversion_source: source || 'unknown',
+        value: 199, currency: 'MZN'
+      });
+      document.getElementById('pay-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePayPopup() {
+      document.getElementById('pay-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handlePayOverlayClick(e) {
+      if (e.target === document.getElementById('pay-overlay')) closePayPopup();
+    }
+
+    function goToCheckout() {
+      ga4('begin_checkout', {
+        item_name: 'Inscrição grupo de vagas',
+        conversion_source: 'payment_warning',
+        value: 199, currency: 'MZN'
+      });
+      ga4('generate_lead', {
+        form_type: 'group_subscription',
+        conversion_source: 'payment_warning',
+        value: 199, currency: 'MZN'
+      });
+      window.location.href = CHECKOUT_URL;
+    }
+
+    function proceedToJobs() {
+      ga4('cta_click', {
+        cta_location: 'popup',
+        cta_text: 'Continuar para as vagas mesmo assim',
+        traffic_action: 'ads_cta_followed',
+        conversion_source: 'popup_jobs_redirect'
+      });
+      closePopup();
+      window.location.href = JOB_POSTS_URL;
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('popup-overlay')) closePopup();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePopup(); closePayPopup(); } });
+
+    /* ── STICKY BAR (IntersectionObserver) ── */
+    (function initStickyBar() {
+      const ctaGroup  = document.getElementById('cta-group');
+      const stickyBar = document.getElementById('sticky-cta-bar');
+
+      if (!ctaGroup || !stickyBar || !('IntersectionObserver' in window)) return;
+
+      const observer = new IntersectionObserver(
+        entries => { stickyBar.classList.toggle('visible', !entries[0].isIntersecting); },
+        { threshold: 0.2 }
+      );
+      observer.observe(ctaGroup);
+    })();
+  </script>
+
+</body>
+</html>
