@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaga de Emprego — Encontra o teu emprego em Moçambique</title>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       GA4 SNIPPET — Measurement ID: G-X3DFMNDEBS (active)
+       Marcar "generate_lead" como Key Event:
+       GA4 Admin → Data Display → Events → toggle Key Event.
+       Dimensões personalizadas (Admin → Custom Definitions, Event-scoped):
+         · traffic_action · conversion_source · cta_location
+       ══════════════════════════════════════════════════════════════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3DFMNDEBS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-X3DFMNDEBS');
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       META PIXEL — ID: 33802274466053392
+       ══════════════════════════════════════════════════════════════ -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '33802274466053392');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=33802274466053392&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- END META PIXEL -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --linkedin: #0A66C2;
+      --linkedin-dark: #004182;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #1EB85A;
+      --red: #D0021B;
+      --bg: #F5F5F7;
+      --surface: #FFFFFF;
+      --surface-2: #F0F0F2;
+      --border: rgba(0,0,0,0.08);
+      --text-primary: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 2px 20px rgba(0,0,0,0.07);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+      padding: 52px 20px 120px; /* bottom acomoda a barra fixa (~80px) */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* ── BRAND (topo) — símbolo LinkedIn original + nome ── */
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-name { font-size: 18px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em; }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 14px 6px 10px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow);
+    }
+
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      flex-shrink: 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.5; transform:scale(0.8); }
+    }
+
+    /* ── HERO ── */
+    .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    h1 { font-size: clamp(34px, 9vw, 52px); font-weight: 600; line-height: 1.08; letter-spacing: -0.03em; }
+    h1 em { font-style: normal; color: var(--red); }
+    .hero-sub { font-size: 17px; line-height: 1.6; color: var(--text-secondary); font-weight: 400; max-width: 340px; }
+
+    /* ── STATS ── */
+    .stats { display:flex; gap:10px; width:100%; }
+    .stat {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 16px 14px; flex: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      box-shadow: var(--shadow);
+    }
+    .stat-num { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+    .stat-label { font-size: 11px; color: var(--text-secondary); text-align: center; line-height: 1.3; }
+
+    /* ── CTA ── */
+    .cta-group { display:flex; flex-direction:column; gap:11px; width:100%; align-items:center; }
+
+    /* Símbolo LinkedIn original — sozinho, em cima da barra */
+    .linkedin-mark { display: flex; justify-content: center; align-items: center; padding: 2px 0 4px; }
+
+    /* VERDE — Barra do WhatsApp (acesso ao grupo) */
+    .btn-whatsapp {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; padding: 17px 20px;
+      background: var(--whatsapp); color: #fff;
+      font-family: var(--font); font-size: 16px; font-weight: 600;
+      border: none; border-radius: var(--radius-sm); cursor: pointer; text-decoration: none;
+      transition: background .18s, transform .13s, box-shadow .18s;
+      box-shadow: 0 4px 18px rgba(37,211,102,.30);
+      letter-spacing: -.01em;
+    }
+    .btn-whatsapp:hover { background:var(--whatsapp-dark); transform:translateY(-1px); box-shadow:0 6px 24px rgba(37,211,102,.38); }
+    .btn-whatsapp:active { transform:translateY(0); }
+
+    .cta-microcopy { text-align: center; font-size: 11.5px; color: var(--text-secondary); margin-top: -4px; }
+
+    /* GHOST — Ver Vagas (abre popup) */
+    .btn-jobs {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; padding: 16px 20px;
+      background: var(--surface); color: var(--text-primary);
+      font-family: var(--font); font-size: 15px; font-weight: 500;
+      border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer;
+      transition: background .15s, transform .13s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      letter-spacing: -.01em;
+    }
+    .btn-jobs:hover { background:#ECECEC; transform:translateY(-1px); }
+    .btn-jobs:active { transform:translateY(0); }
+
+    /* ── PROOF ── */
+    .proof { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+    .proof-stars { font-size: 14px; color: #F5A623; letter-spacing: 1px; }
+    .proof-stars span { font-size: 12px; color: var(--text-secondary); font-weight: 500; margin-left: 5px; letter-spacing: 0; }
+    .proof-row { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--text-secondary); }
+    .proof-icons { display:flex; align-items:center; }
+    .proof-icons span {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: #E8E8ED; border: 2px solid var(--surface);
+      display: flex; align-items: center; justify-content: center; margin-left: -7px;
+    }
+    .proof-icons span:first-child { margin-left:0; }
+
+    /* ── OVERLAY ── */
+    .overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.32);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      z-index: 100;
+      display: flex; align-items: flex-end; justify-content: center;
+      padding: 12px; opacity: 0; pointer-events: none;
+      transition: opacity .22s ease;
+    }
+    .overlay.active { opacity:1; pointer-events:all; }
+
+    .popup {
+      background: var(--surface); border-radius: 22px;
+      padding: 32px 24px 28px; width: 100%; max-width: 480px;
+      display: flex; flex-direction: column; align-items: center; gap: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.16);
+      transform: translateY(28px);
+      transition: transform .3s cubic-bezier(0.34,1.45,0.64,1);
+    }
+    .overlay.active .popup { transform:translateY(0); }
+
+    .popup-icon {
+      width: 54px; height: 54px; border-radius: 14px;
+      background: rgba(37,211,102,0.10);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .popup h2 { font-size: 20px; font-weight: 600; text-align: center; line-height: 1.25; letter-spacing: -.02em; }
+    .popup p { font-size: 14.5px; color: var(--text-secondary); text-align: center; line-height: 1.65; max-width: 340px; }
+    .popup p strong { color: var(--text-primary); font-weight:600; }
+    .popup-divider { width:100%; height:1px; background:var(--border); }
+    .popup-actions { display:flex; flex-direction:column; gap:10px; width:100%; }
+
+    .popup-btn-primary {
+      display: flex; align-items:center; justify-content:center; gap:8px;
+      width:100%; padding:15px 18px;
+      background: var(--whatsapp); color:#fff;
+      font-family:var(--font); font-size:15px; font-weight:600;
+      border:none; border-radius:var(--radius-sm); cursor:pointer;
+      transition: background .15s, transform .12s; letter-spacing:-.01em;
+    }
+    .popup-btn-primary:hover { background:var(--whatsapp-dark); transform:translateY(-1px); }
+    .popup-btn-primary:active { transform:translateY(0); }
+
+    .popup-btn-secondary {
+      width:100%; padding:14px 18px;
+      background:var(--surface-2); color:var(--text-secondary);
+      font-family:var(--font); font-size:14px; font-weight:500;
+      border:1px solid var(--border); border-radius:var(--radius-sm); cursor:pointer;
+      transition: background .15s, color .15s; letter-spacing:-.01em;
+    }
+    .popup-btn-secondary:hover { background:#E8E8ED; color:var(--text-primary); }
+
+    /* ── IMAGENS INTEGRADAS ── */
+    .brand-logo { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; display: block; }
+
+    .whatsapp-banner {
+      width: 100%; max-width: 380px; border-radius: var(--radius-sm); overflow: hidden;
+      box-shadow: var(--shadow); margin: 0 auto 2px;
+    }
+    .whatsapp-banner img { width: 100%; height: 120px; display: block; object-fit: cover; }
+
+    .pay-banner {
+      width: 100%; max-width: 240px; border-radius: 16px; overflow: hidden;
+      background: var(--surface); margin: 0 auto; flex-shrink: 0;
+    }
+    .pay-banner img { width: 100%; height: auto; display: block; max-height: 150px; object-fit: contain; }
+
+    /* ── AVISO DE PAGAMENTO ── */
+    .pay-popup { gap: 14px; max-height: 88dvh; overflow-y: auto; }
+
+    .pay-benefits {
+      list-style: none; width: 100%;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .pay-benefits li {
+      position: relative; padding-left: 26px;
+      font-size: 14px; line-height: 1.45; color: var(--text-primary);
+      text-align: left;
+    }
+    .pay-benefits li::before {
+      content: "✓"; position: absolute; left: 0; top: 0;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(37,211,102,0.14); color: var(--whatsapp-dark);
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .pay-price {
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      background: var(--red); border: 1px solid var(--red);
+      border-radius: var(--radius-sm); padding: 14px 20px; width: 100%; flex-shrink: 0;
+    }
+    .pay-price-value { font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #fff; }
+    .pay-price-label { font-size: 12px; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: .04em; }
+
+    .pay-note { font-size: 13px !important; color: var(--text-secondary); }
+
+    /* ── SECTION HEAD (reutilizável) ── */
+    .section-head { display:flex; flex-direction:column; align-items:center; gap:5px; text-align:center; }
+    .section-eyebrow { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); }
+    .section-title { font-size:22px; font-weight:600; letter-spacing:-.02em; line-height:1.2; }
+    .section-sub { font-size:13.5px; color:var(--text-secondary); line-height:1.55; max-width:340px; }
+
+    /* ── TESTEMUNHOS ── */
+    .testimonials { display:flex; flex-direction:column; align-items:center; gap:16px; width:100%; }
+    .testi-list { display:flex; flex-direction:column; gap:12px; width:100%; }
+    .testi-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+      padding:16px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:11px;
+    }
+    .testi-top { display:flex; align-items:center; gap:12px; }
+    .testi-avatar {
+      width:52px; height:52px; border-radius:50%; object-fit:cover; flex-shrink:0;
+      border:2px solid var(--surface-2); background:var(--surface-2);
+    }
+    .testi-meta { display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .testi-name { font-size:14.5px; font-weight:600; letter-spacing:-.01em; }
+    .testi-role { font-size:12px; color:var(--text-secondary); line-height:1.3; }
+    .testi-quote { font-size:13.5px; line-height:1.6; color:var(--text-primary); }
+    .testi-quote::before { content:"\201C"; color:var(--text-secondary); font-weight:600; }
+    .testi-quote::after  { content:"\201D"; color:var(--text-secondary); font-weight:600; }
+
+    /* ── CONVERSAS REAIS DO GRUPO ── */
+    .chat-proof { display:flex; flex-direction:column; align-items:center; gap:14px; width:100%; }
+    .chat-caption { font-size:12px; color:var(--text-secondary); text-align:center; }
+
+    /* ── GALERIA DE PRINTS (carrossel deslizável) ── */
+    .wa-gallery {
+      display:flex; gap:14px; width:100%;
+      overflow-x:auto; scroll-snap-type:x mandatory;
+      padding:2px 2px 8px; -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .wa-gallery::-webkit-scrollbar { display:none; }
+
+    /* ── CHAT DE WHATSAPP (renderizado em HTML) ── */
+    .wa-chat {
+      flex:0 0 90%; max-width:380px; scroll-snap-align:center;
+      border-radius:16px; overflow:hidden;
+      border:1px solid var(--border); box-shadow:var(--shadow);
+      display:flex; flex-direction:column; background:#E5DDD5;
+    }
+    .wa-header {
+      background:#075E54; color:#fff;
+      display:flex; align-items:center; gap:10px; padding:9px 12px;
+      flex-shrink:0;
+    }
+    .wa-back { opacity:.95; flex-shrink:0; }
+    .wa-header-avatar {
+      width:38px; height:38px; border-radius:50%; flex-shrink:0;
+      object-fit:cover; background:#0c8074;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .wa-header-info { display:flex; flex-direction:column; line-height:1.25; min-width:0; }
+    .wa-header-name { font-size:14px; font-weight:600; letter-spacing:-.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .wa-header-status { font-size:11px; opacity:.85; }
+    .wa-header-icons { margin-left:auto; display:flex; gap:18px; opacity:.95; flex-shrink:0; }
+
+    .wa-pinned {
+      background:#0b6b5f; color:rgba(255,255,255,.92);
+      font-size:11.5px; padding:7px 14px; display:flex; align-items:center; gap:7px;
+      border-bottom:1px solid rgba(0,0,0,.12); flex-shrink:0;
+    }
+    .wa-pinned svg { opacity:.85; flex-shrink:0; }
+
+    .wa-body {
+      padding:14px 10px; display:flex; flex-direction:column; gap:9px;
+      height:440px; overflow-y:auto;
+      /* papel de parede subtil estilo WhatsApp */
+      background-color:#E5DDD5;
+      background-image:radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px);
+      background-size:18px 18px;
+    }
+    .wa-day { align-self:center; background:#fff; color:#54656f; font-size:10.5px; font-weight:500;
+      padding:4px 10px; border-radius:7px; box-shadow:0 1px .5px rgba(0,0,0,.1); margin-bottom:2px; }
+
+    .wa-msg { display:flex; gap:7px; align-items:flex-end; max-width:86%; }
+    .wa-msg.out { margin-left:auto; flex-direction:row-reverse; }
+    .wa-avatar {
+      width:28px; height:28px; border-radius:50%; flex-shrink:0;
+      object-fit:cover; font-size:11px; font-weight:600; color:#fff;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .wa-bubble {
+      background:#fff; border-radius:1px 8px 8px 8px; padding:5px 8px 4px;
+      box-shadow:0 1px .5px rgba(0,0,0,.13); position:relative;
+      display:flex; flex-direction:column; gap:2px; min-width:0;
+    }
+    .wa-msg.out .wa-bubble { background:#DCF8C6; border-radius:8px 1px 8px 8px; }
+    /* consolidação: mensagens seguidas do mesmo remetente ficam juntas */
+    .wa-msg.grouped { margin-top:-7px; }
+    .wa-msg.grouped:not(.out) .wa-bubble { border-radius:8px; }
+    .wa-msg.grouped.out .wa-bubble { border-radius:8px; }
+    .wa-avatar-spacer { width:28px; flex-shrink:0; }
+    .wa-sender { font-size:12px; font-weight:600; letter-spacing:-.01em; }
+    .wa-text { font-size:12.5px; line-height:1.42; color:#111b21; white-space:pre-line; word-break:break-word; }
+    .wa-meta { display:flex; align-items:center; gap:3px; align-self:flex-end; margin-top:1px; }
+    .wa-time { font-size:10px; color:#667781; }
+    .wa-tick { color:#53bdeb; }
+
+    .wa-card {
+      background:rgba(0,0,0,0.04); border-radius:6px; padding:7px 9px;
+      border-left:3px solid var(--linkedin); margin-top:2px;
+      display:flex; flex-direction:column; gap:1px;
+    }
+    .wa-card-title { font-weight:600; font-size:11.5px; color:#111b21; }
+    .wa-card-sub { font-size:10.5px; color:#667781; }
+
+    /* anexo de documento (PDF) estilo WhatsApp */
+    .wa-doc {
+      display:flex; align-items:center; gap:9px; margin-top:2px;
+      background:rgba(0,0,0,0.045); border-radius:7px; padding:8px 9px;
+      min-width:190px;
+    }
+    .wa-doc-icon {
+      width:34px; height:40px; border-radius:5px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .wa-doc-info { display:flex; flex-direction:column; gap:1px; min-width:0; }
+    .wa-doc-name { font-size:12px; font-weight:600; color:#111b21; line-height:1.25;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:190px; }
+    .wa-doc-meta { display:flex; align-items:center; gap:5px; font-size:10.5px; color:#667781; }
+
+    /* menções @nome */
+    .wa-mention { color:var(--linkedin); font-weight:600; }
+
+    /* cartão de contacto partilhado (RH / chefe) estilo WhatsApp */
+    .wa-contact {
+      margin-top:3px; border-radius:8px; overflow:hidden;
+      min-width:236px; background:rgba(0,0,0,0.045);
+    }
+    .wa-contact-top { display:flex; align-items:center; gap:9px; padding:8px 9px 7px; }
+    .wa-contact-avatar {
+      width:36px; height:36px; border-radius:50%; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; background:#0c8074;
+    }
+    .wa-contact-info { display:flex; flex-direction:column; gap:1px; min-width:0; }
+    .wa-contact-name { font-size:13px; font-weight:600; color:#128C7E; line-height:1.2; }
+    .wa-contact-role { font-size:10.5px; color:#667781; }
+    .wa-contact-time { margin-left:auto; align-self:flex-end; font-size:10px; color:#667781; padding-left:6px; flex-shrink:0; }
+    .wa-contact-actions { display:flex; border-top:1px solid rgba(0,0,0,0.08); }
+    .wa-contact-btn {
+      flex:1; text-align:center; padding:9px 6px; white-space:nowrap;
+      font-size:12px; font-weight:700; color:#128C7E; letter-spacing:.01em;
+    }
+    .wa-contact-btn + .wa-contact-btn { border-left:1px solid rgba(0,0,0,0.08); }
+
+    /* ── PARCERIAS ── */
+    .partners {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      width: 100%;
+    }
+    .partners-title {
+      font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .partners-grid {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+      width: 100%;
+    }
+    .partner-chip {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 10px 16px;
+      font-size: 13px; font-weight: 600; color: var(--text-primary);
+      letter-spacing: -.01em; box-shadow: var(--shadow);
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 48px; min-width: 96px;
+    }
+    .partner-chip img {
+      max-height: 26px; max-width: 110px; width: auto; height: auto;
+      object-fit: contain; display: block;
+    }
+    .partners-note { font-size: 12px; color: var(--text-secondary); text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      font-size:11.5px; color:var(--text-secondary);
+      text-align:center; opacity:.55;
+      display: flex; flex-direction: column; gap: 6px; align-items: center;
+    }
+    footer a { color: var(--text-secondary); text-decoration: underline; text-decoration-color: rgba(110,110,115,0.4); text-underline-offset: 2px; }
+    footer a:hover { opacity: 1; text-decoration-color: var(--text-secondary); }
+
+    /* ── STICKY BOTTOM CTA BAR ── */
+    .sticky-cta-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding: 12px 20px; padding-bottom: calc(12px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.08);
+      z-index: 49; transform: translateY(110%);
+      transition: transform .4s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+    }
+    .sticky-cta-bar.visible { transform: translateY(0); }
+
+    .sticky-btn-whatsapp {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; max-width: 480px; padding: 15px 20px;
+      background: var(--whatsapp); color: #fff;
+      font-family: var(--font); font-size: 15px; font-weight: 600;
+      border: none; border-radius: var(--radius-sm); cursor: pointer; text-decoration: none;
+      transition: background .15s, transform .12s;
+      box-shadow: 0 3px 14px rgba(37,211,102,.28);
+      letter-spacing: -.01em;
+    }
+    .sticky-btn-whatsapp:hover { background: var(--whatsapp-dark); transform: translateY(-1px); }
+    .sticky-btn-whatsapp:active { transform: translateY(0); }
+
+    .sticky-microcopy { font-size: 11px; color: var(--text-secondary); text-align: center; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up { opacity:0; transform:translateY(16px); animation: fadeUp .55s ease forwards; }
+    .fade-up:nth-child(1) { animation-delay:.04s; }
+    .fade-up:nth-child(2) { animation-delay:.12s; }
+    .fade-up:nth-child(3) { animation-delay:.20s; }
+    .fade-up:nth-child(4) { animation-delay:.28s; }
+    .fade-up:nth-child(5) { animation-delay:.34s; }
+    .fade-up:nth-child(6) { animation-delay:.40s; }
+    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <main class="page">
+
+    <!-- SÍMBOLO DO TOPO — LinkedIn original + nome da marca -->
+    <a href="https://www.vagademprego.com" aria-label="Vaga de Emprego" class="brand fade-up">
+      <img src="LOGO.jpg" alt="LinkedIn" class="brand-logo" width="34" height="34">
+      <span class="brand-name">Vaga de Emprego</span>
+    </a>
+
+    <!-- BADGE -->
+    <div class="badge fade-up">
+      <div class="badge-dot"></div>
+      Plataforma líder de emprego em Moçambique
+    </div>
+
+    <!-- HERO -->
+    <section class="hero fade-up">
+      <h1>O teu próximo<br>emprego está <em>aqui.</em></h1>
+      <p class="hero-sub">
+        Vagas actualizadas todos os dias. Mais de 100 mil profissionais moçambicanos já confiam na plataforma.
+      </p>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats fade-up">
+      <div class="stat">
+        <div class="stat-num">100K+</div>
+        <div class="stat-label">Seguidores activos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">495+</div>
+        <div class="stat-label">CVs entregues</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Diário</div>
+        <div class="stat-label">Novas vagas</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-group fade-up" id="cta-group">
+
+      <!-- 1) FOTO DA PARTE DO WHATSAPP — banner em cima da barra verde -->
+      <div class="whatsapp-banner">
+        <img src="PARTE%20DE%20WHATSAPP.jpg" alt="Grupo de vagas no LinkedIn" loading="lazy">
+      </div>
+
+      <!-- 2) BARRA DO WHATSAPP (verde) — acesso ao grupo -->
+      <a class="btn-whatsapp" href="#" id="btn-channel-main" onclick="openPaymentPopup(event, 'hero')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+        </svg>
+        Acesso ao grupo de vagas
+      </a>
+
+      <p class="cta-microcopy">Grátis • Sem spam • Menos de 1 minuto</p>
+
+      <!-- 3) GHOST — abre popup -->
+      <button class="btn-jobs" onclick="showPopup()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+        </svg>
+        Ver vagas disponíveis
+      </button>
+
+    </div>
+
+    <!-- SOCIAL PROOF -->
+    <div class="proof fade-up">
+      <div class="proof-stars">
+        ★★★★★
+        <span>4.8 / 5.0</span>
+      </div>
+      <div class="proof-row">
+        <div class="proof-icons">
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#6E6E73" aria-hidden="true">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"></path>
+            </svg>
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#8E8E93" aria-hidden="true">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"></path>
+            </svg>
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#AEAEB2" aria-hidden="true">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"></path>
+            </svg>
+          </span>
+        </div>
+        Mais de <strong style="color:var(--text-primary);margin:0 3px;font-weight:600;">43 mil</strong> profissionais e empregadores já fazem parte do grupo
+      </div>
+    </div>
+
+    <!-- TESTEMUNHOS -->
+    <section class="testimonials fade-up">
+      <div class="section-head">
+        <p class="section-eyebrow">Histórias reais</p>
+        <h2 class="section-title">Veja o que os nossos ex-membros dizem</h2>
+        <p class="section-sub">Profissionais moçambicanos que encontraram emprego através das vagas partilhadas no grupo.</p>
+      </div>
+
+      <div class="testi-list">
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Carlos%20Sail%20Gestor%20de%20vendas.jpg" alt="Carlos Sail" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Carlos Sail</span>
+              <span class="testi-role">Gestor de Vendas</span>
+            </div>          </div>
+          <p class="testi-quote">Estava desempregado há meses. Em duas semanas no grupo recebi a chamada para a entrevista e hoje estou empregado. Vale muito a pena.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Maria%20Mayanga%20Ntombe%20Engenheira%20de%20construcao%20civil.jpg" alt="Maria Mayanga Ntombe" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Maria Mayanga Ntombe</span>
+              <span class="testi-role">Engenheira de Construção Civil</span>
+            </div>          </div>
+          <p class="testi-quote">Sou engenheira e encontrei aqui a oportunidade certa na minha área. O grupo é sério e as vagas são actualizadas todos os dias.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/colaboradora%20da%20Moz%20Environmental%20Lda%20Ana%20Machego%20Supervisora%20Adjunto%20de%20Estaleiro.jpg" alt="Ana Machego" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Ana Machego</span>
+              <span class="testi-role">Supervisora Adjunta de Estaleiro · Moz Environmental</span>
+            </div>          </div>
+          <p class="testi-quote">Foi através do grupo que cheguei à minha vaga na Moz Environmental. As oportunidades chegam sempre primeiro aqui.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Egidio%20Malema%20Organizacao%20mundial%20da%20saude.jpg" alt="Egídio Malema" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Egídio Malema</span>
+              <span class="testi-role">Organização Mundial da Saúde (OMS)</span>
+            </div>          </div>
+          <p class="testi-quote">Recebi a vaga directamente no WhatsApp antes de sair em qualquer outro lado. Consegui colocação numa organização de referência.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Adriano%20Sambel%20RH.jpg" alt="Adriano Sambel" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Adriano Sambel</span>
+              <span class="testi-role">Recursos Humanos · Recrutamento</span>
+            </div>          </div>
+          <p class="testi-quote">Como profissional de RH, recomendo o grupo. As vagas são reais e bem organizadas — já contratei colaboradores que encontrei aqui.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Moises%20Inacio%20Contabilista%20do%20Inss.jpg" alt="Moisés Inácio" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Moisés Inácio</span>
+              <span class="testi-role">Contabilista · INSS</span>
+            </div>          </div>
+          <p class="testi-quote">Candidatei-me a uma vaga partilhada no grupo e fui chamado. Hoje trabalho como contabilista. Gratidão à equipa.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONVERSAS REAIS DO GRUPO -->
+    <section class="chat-proof fade-up">
+      <div class="section-head">
+        <p class="section-eyebrow">Grupo no LinkedIn</p>
+        <h2 class="section-title">Chat do grupo</h2>
+      </div>
+
+      <!-- Painéis de chat renderizados via JS a partir de GROUP_CHATS (ver script no fim da página).
+           Para trocar perfis: edite nome, cor, iniciais ou foto (img) em cada mensagem. -->
+      <div class="wa-gallery" id="wa-gallery" aria-label="Prints do grupo"></div>
+      <p class="chat-caption">← Deslize para ver mais prints do grupo →</p>
+    </section>
+
+    <!-- PARCERIAS -->
+    <section class="partners fade-up">
+      <p class="partners-title">Parcerias de confiança</p>
+      <div class="partners-grid">
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Cervejas_de_Mocambique_logo.png" alt="Cervejas 2M" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Vodacom-2011.png" alt="Vodacom" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Millennium_bim_Logotipo.png" alt="Millennium bim" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://upload.wikimedia.org/wikipedia/en/8/86/Standard_Bank_of_South_Africa_logo.png" alt="Standard Bank" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+        <span class="partner-chip"><img src="https://images.seeklogo.com/logo-png/43/1/electricidade-de-mocambique-edm-logo-png_seeklogo-438151.png" alt="EDM" loading="lazy" onerror="this.replaceWith(document.createTextNode(this.alt))"></span>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="fade-up">
+      <span>vagademprego.com • Moçambique</span>
+      <a href="/politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>
+    </footer>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOMO POPUP
+       ============================================================ -->
+  <div class="overlay" id="popup-overlay" onclick="handleOverlayClick(event)">
+    <div class="popup" id="popup-card">
+
+      <div class="popup-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+      </div>
+
+      <h2>Espera — não percas as melhores vagas</h2>
+
+      <p>
+        As vagas mais concorridas chegam <strong>primeiro ao nosso grupo de WhatsApp</strong>.
+        Dezenas de candidatos já seguiram hoje.
+        <strong>Não sejas o último a saber.</strong>
+      </p>
+
+      <div class="popup-divider"></div>
+
+      <div class="popup-actions">
+
+        <button class="popup-btn-primary" onclick="joinChannel(event)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+          </svg>
+          Quero entrar no grupo primeiro
+        </button>
+
+        <button class="popup-btn-secondary" onclick="proceedToJobs()">
+          Continuar para as vagas mesmo assim
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       AVISO IMPORTANTE — INSCRIÇÃO 199 MZN (junte-se ao grupo)
+       ============================================================ -->
+  <div class="overlay" id="pay-overlay" onclick="handlePayOverlayClick(event)">
+    <div class="popup pay-popup" id="pay-card">
+
+      <div class="pay-banner">
+        <img src="JUNTE%20AO%20GRUPO%20WHTSAPP.webp" alt="Junte-se ao grupo de vagas" loading="lazy">
+      </div>
+
+      <h2>🔒 Inscrição para Entrar no Grupo</h2>
+
+      <p>
+        Para fazer parte da nossa comunidade, é necessária uma
+        <strong>inscrição única no valor de 199 MZN</strong>.
+      </p>
+
+      <p>
+        O valor da inscrição é utilizado para cobrir os custos operacionais do grupo,
+        incluindo o envio e processamento de documentos, manutenção da plataforma,
+        gestão da comunidade e continuidade dos serviços prestados aos membros.
+      </p>
+
+      <ul class="pay-benefits">
+        <li>Inscrição única (sem mensalidades)</li>
+        <li>Acesso exclusivo ao grupo</li>
+        <li>Processamento e envio de documentos pela nossa equipa</li>
+        <li>Manutenção e funcionamento contínuo da comunidade</li>
+        <li>Suporte disponível após a confirmação do pagamento</li>
+      </ul>
+
+      <div class="pay-price">
+        <span class="pay-price-label">Valor da inscrição</span>
+        <span class="pay-price-value">199 MZN</span>
+      </div>
+
+      <p>
+        Após a confirmação do pagamento, o seu acesso será liberado e o suporte ficará
+        disponível para esclarecer quaisquer dúvidas relacionadas à sua inscrição, aos
+        documentos enviados e ao funcionamento do grupo.
+      </p>
+
+      <p class="pay-note">
+        A nossa prioridade é trabalhar com <strong>transparência, organização e
+        compromisso</strong>, garantindo que todos os membros recebam o acompanhamento
+        necessário após a adesão.
+      </p>
+
+      <div class="popup-divider"></div>
+
+      <div class="popup-actions">
+        <button class="popup-btn-primary" onclick="goToCheckout()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="1" y="4" width="22" height="16" rx="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          Juntar-se agora
+        </button>
+
+        <button class="popup-btn-secondary" onclick="closePayPopup()">
+          Agora não
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       STICKY BOTTOM CTA BAR — barra do WhatsApp
+       ============================================================ -->
+  <div class="sticky-cta-bar" id="sticky-cta-bar">
+    <a class="sticky-btn-whatsapp" id="sticky-btn-channel" href="#" onclick="openPaymentPopup(event, 'sticky_bar')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+      </svg>
+      Entrar no grupo de vagas
+    </a>
+    <p class="sticky-microcopy">Grátis • 43 mil seguidores no grupo</p>
+  </div>
+
+
+  <!-- ============================================================
+       JS — MUDA APENAS OS VALORES NO TOPO
+       ============================================================ -->
+  <script>
+    /* ════════════════════════════════════════════════════════════
+       LINK DO CANAL DE WHATSAPP — VdE / Vaga de Emprego Moçambique
+       Ao clicar, abre o grupo no WhatsApp com a mensagem de
+       boas-vindas, os 43 mil seguidores e o botão "Ver no WhatsApp".
+       (Link universal — funciona em telemóvel e desktop)
+       ════════════════════════════════════════════════════════════ */
+    const WHATSAPP_CHANNEL_URL = 'https://whatsapp.com/channel/0029Va76IHo2UPB7w5C2tM3c';
+
+    /* A tua página de vagas (fallback do popup) */
+    const JOB_POSTS_URL = 'https://www.vagademprego.com/diversas-vagas-abertas-para-sua-candidatura-em-mocambique-nao-perca-esta-oportunidade/';
+
+    /* ════════════════════════════════════════════════════════════
+       CHECKOUT DA INSCRIÇÃO — 199 MZN (RatixPay)
+       ════════════════════════════════════════════════════════════ */
+    const CHECKOUT_URL = 'https://ratixpay.co.mz/checkout.html?produto=52RTPL3Z1';
+
+    /* ── GA4 HELPERS ── */
+    function ga4(event, params) {
+      if (typeof gtag === 'function') gtag('event', event, params);
+    }
+
+    function trackHeroCTA() {
+      ga4('cta_click', {
+        cta_location: 'hero',
+        cta_text: 'Acesso ao grupo de vagas',
+        traffic_action: 'ads_cta_followed',
+        conversion_source: 'hero_whatsapp_channel'
+      });
+      ga4('generate_lead', {
+        form_type: 'whatsapp_channel_follow',
+        conversion_source: 'hero_whatsapp_channel',
+        traffic_action: 'ads_cta_followed',
+        value: 0, currency: 'MZN'
+      });
+    }
+
+    function trackStickyCTA() {
+      ga4('cta_click', {
+        cta_location: 'sticky_bar',
+        cta_text: 'Entrar no grupo de vagas',
+        traffic_action: 'ads_cta_followed',
+        conversion_source: 'sticky_whatsapp_channel'
+      });
+      ga4('generate_lead', {
+        form_type: 'whatsapp_channel_follow',
+        conversion_source: 'sticky_whatsapp_channel',
+        traffic_action: 'ads_cta_followed',
+        value: 0, currency: 'MZN'
+      });
+    }
+
+    /* ── POPUP ── */
+    function showPopup() {
+      document.getElementById('popup-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      ga4('popup_view', {
+        popup_trigger: 'btn_ver_vagas',
+        popup_type: 'fomo_whatsapp_channel',
+        traffic_action: 'ads_cta_followed'
+      });
+    }
+
+    function closePopup() {
+      document.getElementById('popup-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function joinChannel(e) {
+      if (e) e.preventDefault();
+      closePopup();
+      openPaymentPopup(null, 'fomo_popup');
+    }
+
+    /* ── AVISO IMPORTANTE / INSCRIÇÃO 199 MZN ── */
+    function openPaymentPopup(e, source) {
+      if (e) e.preventDefault();
+      ga4('cta_click', {
+        cta_location: source || 'unknown',
+        cta_text: 'Acesso ao grupo de vagas',
+        traffic_action: 'ads_cta_followed',
+        conversion_source: 'payment_warning'
+      });
+      ga4('view_payment_notice', {
+        conversion_source: source || 'unknown',
+        value: 199, currency: 'MZN'
+      });
+      if (typeof fbq === 'function') fbq('track', 'ViewContent', {
+        content_name: 'Inscrição grupo de vagas',
+        value: 199, currency: 'MZN'
+      });
+      document.getElementById('pay-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePayPopup() {
+      document.getElementById('pay-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handlePayOverlayClick(e) {
+      if (e.target === document.getElementById('pay-overlay')) closePayPopup();
+    }
+
+    function goToCheckout() {
+      ga4('begin_checkout', {
+        item_name: 'Inscrição grupo de vagas',
+        conversion_source: 'payment_warning',
+        value: 199, currency: 'MZN'
+      });
+      ga4('generate_lead', {
+        form_type: 'group_subscription',
+        conversion_source: 'payment_warning',
+        value: 199, currency: 'MZN'
+      });
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', { content_name: 'Inscrição grupo de vagas', value: 199, currency: 'MZN' });
+        fbq('track', 'InitiateCheckout', { content_name: 'Inscrição grupo de vagas', value: 199, currency: 'MZN' });
+      }
+      window.location.href = CHECKOUT_URL;
+    }
+
+    function proceedToJobs() {
+      ga4('cta_click', {
+        cta_location: 'popup',
+        cta_text: 'Continuar para as vagas mesmo assim',
+        traffic_action: 'ads_cta_followed',
+        conversion_source: 'popup_jobs_redirect'
+      });
+      closePopup();
+      window.location.href = JOB_POSTS_URL;
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('popup-overlay')) closePopup();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePopup(); closePayPopup(); } });
+
+    /* ── STICKY BAR (IntersectionObserver) ── */
+    (function initStickyBar() {
+      const ctaGroup  = document.getElementById('cta-group');
+      const stickyBar = document.getElementById('sticky-cta-bar');
+
+      if (!ctaGroup || !stickyBar || !('IntersectionObserver' in window)) return;
+
+      const observer = new IntersectionObserver(
+        entries => { stickyBar.classList.toggle('visible', !entries[0].isIntersecting); },
+        { threshold: 0.2 }
+      );
+      observer.observe(ctaGroup);
+    })();
+
+
+    /* ════════════════════════════════════════════════════════════
+       PRINTS DO GRUPO — PERFIS SUBSTITUÍVEIS
+       ────────────────────────────────────────────────────────────
+       GROUP_CHATS é uma lista de PAINÉIS (prints). Acrescente ou
+       remova painéis à vontade — cada um vira um print deslizável.
+
+       Cada mensagem aceita:
+         name     → nome do membro
+         role     → etiqueta opcional ao lado do nome (ex.: "Administrador")
+         color    → cor do nome/avatar (qualquer cor CSS)
+         initials → iniciais no avatar (ex.: "AT")
+         img      → (opcional) caminho de uma foto p/ o avatar,
+                    ex.: 'testemunhos/perfis de membros dom grupo/ana.jpg'
+                    → se preenchido, substitui as iniciais pela foto
+         text     → texto (use \n p/ quebra de linha; @nome vira menção azul)
+         time     → hora (ex.: "08:15")
+         out      → true p/ mensagem enviada (balão verde)
+         card     → (opcional) { title, sub } cartão de vaga/contrato
+         doc      → (opcional) { name, meta } anexo de PDF (vaga ou CV)
+         contact  → (opcional) { name, role, phone } contacto directo (RH/chefe)
+       ════════════════════════════════════════════════════════════ */
+    const GROUP_CHATS = [
+      {
+        groupName: 'Oportunidades de Emprego MOZ',
+        groupStatus: '213 membros',
+        day: 'HOJE',
+        pinned: 'Aqui partilhamos vagas, contactos e orientações. Boa sorte! 🍀',
+        messages: [
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '07:58',
+            text: 'Bom dia a todos! 📢 Abriram candidaturas na CDM — Nampula. Segue o anúncio completo 👇',
+            doc: { name: 'Candidaturas CDM — Nampula.pdf', meta: 'PDF · 5 páginas' }
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '07:59',
+            text: '@Joana @Maria @Egídio encaixam no perfil. Liguem para o RH da CDM e serão direccionados onde entregar os documentos 👇'
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '07:59',
+            contact: { name: 'Afonso Tembe RH CDM', img: 'perfis/foto%20de%20RH.webp' }
+          },
+          {
+            name: 'Joana Nhancale', color: '#00897B', initials: 'JN', img: 'foto5.jpg', time: '08:14',
+            text: 'Já liguei para o RH e fui muito bem atendido 🙏 Vou entregar os documentos hoje.'
+          },
+          {
+            name: 'Joana Nhancale', color: '#00897B', initials: 'JN', img: 'foto5.jpg', time: '08:15',
+            text: 'Deixo aqui o meu CV actualizado, caso ajude alguém 📄',
+            doc: { name: 'CV - Joana Nhancale.pdf', meta: 'PDF · 2 páginas' }
+          },
+          {
+            name: 'Maria Mayanga', color: '#8E24AA', initials: 'MM', img: 'Maria%20mayanga.jpg', time: '08:32',
+            text: 'Obrigada pela orientação! Liguei e já tenho a entrevista marcada na CDM 🙌'
+          },
+          {
+            name: 'Egídio Malema', color: '#1F7AE0', initials: 'EM', img: 'testemunhos/Egidio%20Malema%20Organizacao%20mundial%20da%20saude.jpg', time: '08:49',
+            text: 'Esta comunidade é incrível! Partilho também o meu CV 📎',
+            doc: { name: 'CV - Egídio Malema.pdf', meta: 'PDF · 3 páginas' }
+          }
+        ]
+      },
+      {
+        groupName: 'Oportunidades de Emprego MOZ',
+        groupStatus: '213 membros',
+        day: 'ONTEM',
+        pinned: 'Contratos e vagas verificadas. Mantenham o CV pronto! 📄',
+        messages: [
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '13:40',
+            text: 'Boa tarde! 📢 A UNICEF está a contratar Activistas em Cabo Delgado. Documento em anexo 👇',
+            doc: { name: 'Contratos UNICEF — Cabo Delgado (Activista).pdf', meta: 'PDF · 7 páginas' }
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '13:41',
+            text: '@Marta @Hélder @Délcia falem directamente com o Supervisor de Terreno. Ele indica onde entregar a candidatura 👇'
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '13:41',
+            contact: { name: 'Salomão Nhaca Supervisor UNICEF', img: 'perfis/foto%203.webp' }
+          },
+          {
+            name: 'Marta da Conceição', color: '#C2410C', initials: 'MC', img: '', time: '14:12',
+            text: 'Já enviei os meus documentos por email para a UNICEF — candidatura para Activista em Cabo Delgado 📧'
+          },
+          {
+            name: 'Marta da Conceição', color: '#C2410C', initials: 'MC', img: '', time: '14:12',
+            text: 'Agora é aguardar o contacto deles 🙏 Obrigada pela partilha!'
+          },
+          {
+            name: 'Hélder Machava', color: '#5E35B1', initials: 'HM', img: 'perfis/foto2.jpg', time: '14:38',
+            text: 'Liguei para o Supervisor, fui orientado e já entreguei os documentos 🙏 Obrigado, grupo!'
+          },
+          {
+            name: 'Egídio Malema', color: '#1F7AE0', initials: 'EM', img: '', time: '14:45',
+            text: 'Também me candidatei como Activista. Partilho o comprovativo de entrega 📎',
+            doc: { name: 'Comprovativo - Candidatura UNICEF.pdf', meta: 'PDF · 1 página' }
+          },
+          {
+            name: 'Délcia Sitoe', color: '#43A047', initials: 'DS', img: '', time: '14:52',
+            text: '@Ana Tatiana muito obrigada pelo emprego que consegui graças a si! 🙏 Pode partilhar o seu número de eMola? Quero enviar 10.000 MZN como agradecimento 💚'
+          }
+        ]
+      },
+      {
+        groupName: 'Oportunidades de Emprego MOZ',
+        groupStatus: '213 membros',
+        day: 'SEG.',
+        pinned: 'Partilhem os vossos CVs aqui — empresas estão a recrutar! 📎',
+        messages: [
+          {
+            name: 'Carlos Machango', color: '#1F7AE0', initials: 'CM', img: 'testemunhos/Carlos%20Sail%20Gestor%20de%20vendas.jpg', time: '09:02',
+            text: 'Bom dia! Partilho o meu CV para vagas de logística 📄',
+            doc: { name: 'CV - Carlos Machango.pdf', meta: 'PDF · 2 páginas' }
+          },
+          {
+            name: 'Sónia Júlio', color: '#00838F', initials: 'SJ', img: '', time: '09:11',
+            text: 'Bom dia! O meu também, área administrativa 📎',
+            doc: { name: 'CV - Sónia Júlio.pdf', meta: 'PDF · 1 página' }
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '09:25',
+            text: 'Recebidos! Vou encaminhar os CVs para os contactos de RH das empresas parceiras. Continuem atentos 👀'
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '09:26',
+            text: 'Quem quiser falar directamente, deixo o contacto do gestor de recrutamento. Liguem e serão direccionados 👇'
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '09:26',
+            contact: { name: 'Hélio Munguambe Recrutamento', img: 'perfis/foto%20de%20recrutador.jpg' }
+          },
+          {
+            name: 'Leonardo Sitoe', color: '#6D4C41', initials: 'LS', img: 'perfis/foto%20de%20adminstrador.jpg', time: '09:40',
+            text: 'Já liguei e marcaram-me entrevista para amanhã! Muito obrigado 🙌'
+          },
+          {
+            name: 'Maria Mayanga', color: '#8E24AA', initials: 'MM', img: '', time: '09:58', out: true,
+            text: 'Recomendem à família e a todos os que procuram emprego! A união faz a força 💪 Nada de nepotismo neste grupo 🙏'
+          }
+        ]
+      }
+    ];
+
+    (function renderGroupChats() {
+      const root = document.getElementById('wa-gallery');
+      if (!root) return;
+
+      const esc = s => String(s).replace(/[&<>"]/g, c =>
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      /* @nome → menção azul (depois de escapar o texto) */
+      const fmt = s => esc(s).replace(/@([A-Za-zÀ-ÿ.]+(?:\s[A-ZÀ-Ý][A-Za-zÀ-ÿ.]+)?)/g, '<span class="wa-mention">@$1</span>');
+
+      const avatar = (m, cls) => m.img
+        ? `<img class="${cls}" src="${esc(m.img)}" alt="${esc(m.name)}" style="background:${esc(m.color)}">`
+        : `<span class="${cls}" style="background:${esc(m.color)}">${esc(m.initials || m.name.slice(0,1))}</span>`;
+
+      const tick = `<svg class="wa-tick" width="15" height="11" viewBox="0 0 18 13" fill="none" aria-hidden="true"><path d="M1 7l3.2 3.2L11 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 7l3.2 3.2L16 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+      const pdfIcon = `<span class="wa-doc-icon"><svg width="34" height="40" viewBox="0 0 34 40" aria-hidden="true"><path d="M4 0h18l8 8v30a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" fill="#fff"/><path d="M22 0l8 8h-8V0z" fill="#E4E4E4"/><rect x="2" y="22" width="30" height="13" rx="2" fill="#EB5757"/><text x="17" y="32" font-family="Arial" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">PDF</text></svg></span>`;
+      const docMetaIcon = `<svg width="11" height="11" viewBox="0 0 24 24" fill="#667781" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg>`;
+      const personIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`;
+      const callIcon = `<svg width="13" height="13" viewBox="0 0 24 24" fill="#1EB85A" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.05 15.05 0 01-6.6-6.6l2.2-2.2a1 1 0 00.25-1.01A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>`;
+
+      const groupAvatar = `<span class="wa-header-avatar"><img src="LOGO.jpg" alt="Grupo" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></span>`;
+
+      const renderPanel = (chat) => {
+        const headerHTML = `
+          <div class="wa-header">
+            <svg class="wa-back" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            ${groupAvatar}
+            <div class="wa-header-info">
+              <span class="wa-header-name">${esc(chat.groupName)}</span>
+              <span class="wa-header-status">${esc(chat.groupStatus)}</span>
+            </div>
+            <div class="wa-header-icons">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.05 15.05 0 01-6.6-6.6l2.2-2.2a1 1 0 00.25-1.01A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>
+              <svg width="4" height="18" viewBox="0 0 4 18" fill="#fff" aria-hidden="true"><circle cx="2" cy="2" r="2"/><circle cx="2" cy="9" r="2"/><circle cx="2" cy="16" r="2"/></svg>
+            </div>
+          </div>`;
+
+        const pinnedHTML = chat.pinned ? `
+          <div class="wa-pinned">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 4l6 6-3 3-1 5-3-3-4 4-1-1 4-4-3-3 5-1z"/></svg>
+            <span>${esc(chat.pinned)}</span>
+          </div>` : '';
+
+        const msgs = chat.messages;
+        const msgsHTML = msgs.map((m, i) => {
+          const prev = msgs[i - 1], next = msgs[i + 1];
+          const side = m.out ? 'out' : 'in';
+          const samePrev = prev && (!!prev.out === !!m.out) && (m.out || prev.name === m.name);
+          const sameNext = next && (!!next.out === !!m.out) && (m.out || next.name === m.name);
+          const firstOfGroup = !samePrev;   // primeira mensagem do bloco → mostra nome + bico
+          const lastOfGroup  = !sameNext;    // última do bloco → mostra avatar
+
+          const card = m.card
+            ? `<div class="wa-card"><span class="wa-card-title">${esc(m.card.title)}</span>${m.card.sub ? `<span class="wa-card-sub">${esc(m.card.sub)}</span>` : ''}</div>`
+            : '';
+          const doc = m.doc
+            ? `<div class="wa-doc">${pdfIcon}<div class="wa-doc-info"><span class="wa-doc-name">${esc(m.doc.name)}</span><span class="wa-doc-meta">${docMetaIcon}${esc(m.doc.meta || 'PDF')}</span></div></div>`
+            : '';
+          const contact = m.contact
+            ? `<div class="wa-contact"><div class="wa-contact-top"><span class="wa-contact-avatar">${m.contact.img ? `<img src="${esc(m.contact.img)}" alt="${esc(m.contact.name)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover">` : personIcon}</span><div class="wa-contact-info"><span class="wa-contact-name">${esc(m.contact.name)}</span>${m.contact.role ? `<span class="wa-contact-role">${esc(m.contact.role)}</span>` : ''}</div><span class="wa-contact-time">${esc(m.time || '')}</span></div><div class="wa-contact-actions"><span class="wa-contact-btn">Enviar mensagem</span><span class="wa-contact-btn">Adicionar ao grupo</span></div></div>`
+            : '';
+          const senderLine = (m.out || !firstOfGroup) ? '' :
+            `<span class="wa-sender" style="color:${esc(m.color)}">${esc(m.name)}${m.role ? ` · ${esc(m.role)}` : ''}</span>`;
+          const av = m.out ? '' : (lastOfGroup ? avatar(m, 'wa-avatar') : '<span class="wa-avatar-spacer"></span>');
+          const meta = `<div class="wa-meta"><span class="wa-time">${esc(m.time || '')}</span>${m.out ? tick : ''}</div>`;
+          return `
+            <div class="wa-msg${m.out ? ' out' : ''}${firstOfGroup ? '' : ' grouped'}">
+              ${av}
+              <div class="wa-bubble">
+                ${senderLine}
+                ${m.text ? `<span class="wa-text">${fmt(m.text)}</span>` : ''}
+                ${doc}
+                ${contact}
+                ${card}
+                ${(m.contact && !m.text && !m.doc && !m.card) ? '' : meta}
+              </div>
+            </div>`;
+        }).join('');
+
+        return `<div class="wa-chat">${headerHTML}${pinnedHTML}` +
+          `<div class="wa-body"><div class="wa-day">${esc(chat.day || 'HOJE')}</div>${msgsHTML}</div></div>`;
+      };
+
+      root.innerHTML = GROUP_CHATS.map(renderPanel).join('');
+    })();
+  </script>
+
+</body>
+</html>
