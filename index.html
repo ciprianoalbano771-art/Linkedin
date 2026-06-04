@@ -285,6 +285,156 @@
 
     .pay-note { font-size: 13px !important; color: var(--text-secondary); }
 
+    /* ── SECTION HEAD (reutilizável) ── */
+    .section-head { display:flex; flex-direction:column; align-items:center; gap:5px; text-align:center; }
+    .section-eyebrow { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); }
+    .section-title { font-size:22px; font-weight:600; letter-spacing:-.02em; line-height:1.2; }
+    .section-sub { font-size:13.5px; color:var(--text-secondary); line-height:1.55; max-width:340px; }
+
+    /* ── TESTEMUNHOS ── */
+    .testimonials { display:flex; flex-direction:column; align-items:center; gap:16px; width:100%; }
+    .testi-list { display:flex; flex-direction:column; gap:12px; width:100%; }
+    .testi-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+      padding:16px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:11px;
+    }
+    .testi-top { display:flex; align-items:center; gap:12px; }
+    .testi-avatar {
+      width:52px; height:52px; border-radius:50%; object-fit:cover; flex-shrink:0;
+      border:2px solid var(--surface-2); background:var(--surface-2);
+    }
+    .testi-meta { display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .testi-name { font-size:14.5px; font-weight:600; letter-spacing:-.01em; }
+    .testi-role { font-size:12px; color:var(--text-secondary); line-height:1.3; }
+    .testi-quote { font-size:13.5px; line-height:1.6; color:var(--text-primary); }
+    .testi-quote::before { content:"\201C"; color:var(--text-secondary); font-weight:600; }
+    .testi-quote::after  { content:"\201D"; color:var(--text-secondary); font-weight:600; }
+
+    /* ── CONVERSAS REAIS DO GRUPO ── */
+    .chat-proof { display:flex; flex-direction:column; align-items:center; gap:14px; width:100%; }
+    .chat-caption { font-size:12px; color:var(--text-secondary); text-align:center; }
+
+    /* ── GALERIA DE PRINTS (carrossel deslizável) ── */
+    .wa-gallery {
+      display:flex; gap:14px; width:100%;
+      overflow-x:auto; scroll-snap-type:x mandatory;
+      padding:2px 2px 8px; -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .wa-gallery::-webkit-scrollbar { display:none; }
+
+    /* ── CHAT DE WHATSAPP (renderizado em HTML) ── */
+    .wa-chat {
+      flex:0 0 90%; max-width:380px; scroll-snap-align:center;
+      border-radius:16px; overflow:hidden;
+      border:1px solid var(--border); box-shadow:var(--shadow);
+      display:flex; flex-direction:column; background:#E5DDD5;
+    }
+    .wa-header {
+      background:#075E54; color:#fff;
+      display:flex; align-items:center; gap:10px; padding:9px 12px;
+      flex-shrink:0;
+    }
+    .wa-back { opacity:.95; flex-shrink:0; }
+    .wa-header-avatar {
+      width:38px; height:38px; border-radius:50%; flex-shrink:0;
+      object-fit:cover; background:#0c8074;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .wa-header-info { display:flex; flex-direction:column; line-height:1.25; min-width:0; }
+    .wa-header-name { font-size:14px; font-weight:600; letter-spacing:-.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .wa-header-status { font-size:11px; opacity:.85; }
+    .wa-header-icons { margin-left:auto; display:flex; gap:18px; opacity:.95; flex-shrink:0; }
+
+    .wa-pinned {
+      background:#0b6b5f; color:rgba(255,255,255,.92);
+      font-size:11.5px; padding:7px 14px; display:flex; align-items:center; gap:7px;
+      border-bottom:1px solid rgba(0,0,0,.12); flex-shrink:0;
+    }
+    .wa-pinned svg { opacity:.85; flex-shrink:0; }
+
+    .wa-body {
+      padding:14px 10px; display:flex; flex-direction:column; gap:9px;
+      height:440px; overflow-y:auto;
+      /* papel de parede subtil estilo WhatsApp */
+      background-color:#E5DDD5;
+      background-image:radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px);
+      background-size:18px 18px;
+    }
+    .wa-day { align-self:center; background:#fff; color:#54656f; font-size:10.5px; font-weight:500;
+      padding:4px 10px; border-radius:7px; box-shadow:0 1px .5px rgba(0,0,0,.1); margin-bottom:2px; }
+
+    .wa-msg { display:flex; gap:7px; align-items:flex-end; max-width:86%; }
+    .wa-msg.out { margin-left:auto; flex-direction:row-reverse; }
+    .wa-avatar {
+      width:28px; height:28px; border-radius:50%; flex-shrink:0;
+      object-fit:cover; font-size:11px; font-weight:600; color:#fff;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .wa-bubble {
+      background:#fff; border-radius:1px 8px 8px 8px; padding:5px 8px 4px;
+      box-shadow:0 1px .5px rgba(0,0,0,.13); position:relative;
+      display:flex; flex-direction:column; gap:2px; min-width:0;
+    }
+    .wa-msg.out .wa-bubble { background:#DCF8C6; border-radius:8px 1px 8px 8px; }
+    /* consolidação: mensagens seguidas do mesmo remetente ficam juntas */
+    .wa-msg.grouped { margin-top:-7px; }
+    .wa-msg.grouped:not(.out) .wa-bubble { border-radius:8px; }
+    .wa-msg.grouped.out .wa-bubble { border-radius:8px; }
+    .wa-avatar-spacer { width:28px; flex-shrink:0; }
+    .wa-sender { font-size:12px; font-weight:600; letter-spacing:-.01em; }
+    .wa-text { font-size:12.5px; line-height:1.42; color:#111b21; white-space:pre-line; word-break:break-word; }
+    .wa-meta { display:flex; align-items:center; gap:3px; align-self:flex-end; margin-top:1px; }
+    .wa-time { font-size:10px; color:#667781; }
+    .wa-tick { color:#53bdeb; }
+
+    .wa-card {
+      background:rgba(0,0,0,0.04); border-radius:6px; padding:7px 9px;
+      border-left:3px solid var(--linkedin); margin-top:2px;
+      display:flex; flex-direction:column; gap:1px;
+    }
+    .wa-card-title { font-weight:600; font-size:11.5px; color:#111b21; }
+    .wa-card-sub { font-size:10.5px; color:#667781; }
+
+    /* anexo de documento (PDF) estilo WhatsApp */
+    .wa-doc {
+      display:flex; align-items:center; gap:9px; margin-top:2px;
+      background:rgba(0,0,0,0.045); border-radius:7px; padding:8px 9px;
+      min-width:190px;
+    }
+    .wa-doc-icon {
+      width:34px; height:40px; border-radius:5px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .wa-doc-info { display:flex; flex-direction:column; gap:1px; min-width:0; }
+    .wa-doc-name { font-size:12px; font-weight:600; color:#111b21; line-height:1.25;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:190px; }
+    .wa-doc-meta { display:flex; align-items:center; gap:5px; font-size:10.5px; color:#667781; }
+
+    /* menções @nome */
+    .wa-mention { color:var(--linkedin); font-weight:600; }
+
+    /* cartão de contacto partilhado (RH / chefe) estilo WhatsApp */
+    .wa-contact {
+      margin-top:3px; border-radius:8px; overflow:hidden;
+      min-width:236px; background:rgba(0,0,0,0.045);
+    }
+    .wa-contact-top { display:flex; align-items:center; gap:9px; padding:8px 9px 7px; }
+    .wa-contact-avatar {
+      width:36px; height:36px; border-radius:50%; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; background:#0c8074;
+    }
+    .wa-contact-info { display:flex; flex-direction:column; gap:1px; min-width:0; }
+    .wa-contact-name { font-size:13px; font-weight:600; color:#128C7E; line-height:1.2; }
+    .wa-contact-role { font-size:10.5px; color:#667781; }
+    .wa-contact-time { margin-left:auto; align-self:flex-end; font-size:10px; color:#667781; padding-left:6px; flex-shrink:0; }
+    .wa-contact-actions { display:flex; border-top:1px solid rgba(0,0,0,0.08); }
+    .wa-contact-btn {
+      flex:1; text-align:center; padding:9px 6px; white-space:nowrap;
+      font-size:12px; font-weight:700; color:#128C7E; letter-spacing:.01em;
+    }
+    .wa-contact-btn + .wa-contact-btn { border-left:1px solid rgba(0,0,0,0.08); }
+
     /* ── PARCERIAS ── */
     .partners {
       display: flex; flex-direction: column; align-items: center; gap: 12px;
@@ -457,6 +607,92 @@
         Mais de <strong style="color:var(--text-primary);margin:0 3px;font-weight:600;">43 mil</strong> profissionais e empregadores já fazem parte do grupo
       </div>
     </div>
+
+    <!-- TESTEMUNHOS -->
+    <section class="testimonials fade-up">
+      <div class="section-head">
+        <p class="section-eyebrow">Histórias reais</p>
+        <h2 class="section-title">Veja o que os nossos ex-membros dizem</h2>
+        <p class="section-sub">Profissionais moçambicanos que encontraram emprego através das vagas partilhadas no grupo.</p>
+      </div>
+
+      <div class="testi-list">
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Carlos%20Sail%20Gestor%20de%20vendas.jpg" alt="Carlos Sail" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Carlos Sail</span>
+              <span class="testi-role">Gestor de Vendas</span>
+            </div>          </div>
+          <p class="testi-quote">Estava desempregado há meses. Em duas semanas no grupo recebi a chamada para a entrevista e hoje estou empregado. Vale muito a pena.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Maria%20Mayanga%20Ntombe%20Engenheira%20de%20construcao%20civil.jpg" alt="Maria Mayanga Ntombe" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Maria Mayanga Ntombe</span>
+              <span class="testi-role">Engenheira de Construção Civil</span>
+            </div>          </div>
+          <p class="testi-quote">Sou engenheira e encontrei aqui a oportunidade certa na minha área. O grupo é sério e as vagas são actualizadas todos os dias.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/colaboradora%20da%20Moz%20Environmental%20Lda%20Ana%20Machego%20Supervisora%20Adjunto%20de%20Estaleiro.jpg" alt="Ana Machego" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Ana Machego</span>
+              <span class="testi-role">Supervisora Adjunta de Estaleiro · Moz Environmental</span>
+            </div>          </div>
+          <p class="testi-quote">Foi através do grupo que cheguei à minha vaga na Moz Environmental. As oportunidades chegam sempre primeiro aqui.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Egidio%20Malema%20Organizacao%20mundial%20da%20saude.jpg" alt="Egídio Malema" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Egídio Malema</span>
+              <span class="testi-role">Organização Mundial da Saúde (OMS)</span>
+            </div>          </div>
+          <p class="testi-quote">Recebi a vaga directamente no WhatsApp antes de sair em qualquer outro lado. Consegui colocação numa organização de referência.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Adriano%20Sambel%20RH.jpg" alt="Adriano Sambel" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Adriano Sambel</span>
+              <span class="testi-role">Recursos Humanos · Recrutamento</span>
+            </div>          </div>
+          <p class="testi-quote">Como profissional de RH, recomendo o grupo. As vagas são reais e bem organizadas — já contratei colaboradores que encontrei aqui.</p>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-top">
+            <img class="testi-avatar" src="testemunhos/Moises%20Inacio%20Contabilista%20do%20Inss.jpg" alt="Moisés Inácio" loading="lazy" width="52" height="52">
+            <div class="testi-meta">
+              <span class="testi-name">Moisés Inácio</span>
+              <span class="testi-role">Contabilista · INSS</span>
+            </div>          </div>
+          <p class="testi-quote">Candidatei-me a uma vaga partilhada no grupo e fui chamado. Hoje trabalho como contabilista. Gratidão à equipa.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONVERSAS REAIS DO GRUPO -->
+    <section class="chat-proof fade-up">
+      <div class="section-head">
+        <p class="section-eyebrow">Grupo no LinkedIn</p>
+        <h2 class="section-title">Chat do grupo</h2>
+      </div>
+
+      <!-- Painéis de chat renderizados via JS a partir de GROUP_CHATS (ver script no fim da página).
+           Para trocar perfis: edite nome, cor, iniciais ou foto (img) em cada mensagem. -->
+      <div class="wa-gallery" id="wa-gallery" aria-label="Prints do grupo"></div>
+      <p class="chat-caption">← Deslize para ver mais prints do grupo →</p>
+    </section>
 
     <!-- PARCERIAS -->
     <section class="partners fade-up">
@@ -756,6 +992,236 @@
         { threshold: 0.2 }
       );
       observer.observe(ctaGroup);
+    })();
+
+
+    /* ════════════════════════════════════════════════════════════
+       PRINTS DO GRUPO — PERFIS SUBSTITUÍVEIS
+       ────────────────────────────────────────────────────────────
+       GROUP_CHATS é uma lista de PAINÉIS (prints). Acrescente ou
+       remova painéis à vontade — cada um vira um print deslizável.
+
+       Cada mensagem aceita:
+         name     → nome do membro
+         role     → etiqueta opcional ao lado do nome (ex.: "Administrador")
+         color    → cor do nome/avatar (qualquer cor CSS)
+         initials → iniciais no avatar (ex.: "AT")
+         img      → (opcional) caminho de uma foto p/ o avatar,
+                    ex.: 'testemunhos/perfis de membros dom grupo/ana.jpg'
+                    → se preenchido, substitui as iniciais pela foto
+         text     → texto (use \n p/ quebra de linha; @nome vira menção azul)
+         time     → hora (ex.: "08:15")
+         out      → true p/ mensagem enviada (balão verde)
+         card     → (opcional) { title, sub } cartão de vaga/contrato
+         doc      → (opcional) { name, meta } anexo de PDF (vaga ou CV)
+         contact  → (opcional) { name, role, phone } contacto directo (RH/chefe)
+       ════════════════════════════════════════════════════════════ */
+    const GROUP_CHATS = [
+      {
+        groupName: 'Oportunidades de Emprego MOZ',
+        groupStatus: '213 membros',
+        day: 'HOJE',
+        pinned: 'Aqui partilhamos vagas, contactos e orientações. Boa sorte! 🍀',
+        messages: [
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '07:58',
+            text: 'Bom dia a todos! 📢 Abriram candidaturas na CDM — Nampula. Segue o anúncio completo 👇',
+            doc: { name: 'Candidaturas CDM — Nampula.pdf', meta: 'PDF · 5 páginas' }
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '07:59',
+            text: '@Joana @Maria @Egídio encaixam no perfil. Liguem para o RH da CDM e serão direccionados onde entregar os documentos 👇'
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '07:59',
+            contact: { name: 'Afonso Tembe RH CDM', img: 'perfis/foto%20de%20RH.webp' }
+          },
+          {
+            name: 'Joana Nhancale', color: '#00897B', initials: 'JN', img: 'foto5.jpg', time: '08:14',
+            text: 'Já liguei para o RH e fui muito bem atendido 🙏 Vou entregar os documentos hoje.'
+          },
+          {
+            name: 'Joana Nhancale', color: '#00897B', initials: 'JN', img: 'foto5.jpg', time: '08:15',
+            text: 'Deixo aqui o meu CV actualizado, caso ajude alguém 📄',
+            doc: { name: 'CV - Joana Nhancale.pdf', meta: 'PDF · 2 páginas' }
+          },
+          {
+            name: 'Maria Mayanga', color: '#8E24AA', initials: 'MM', img: 'Maria%20mayanga.jpg', time: '08:32',
+            text: 'Obrigada pela orientação! Liguei e já tenho a entrevista marcada na CDM 🙌'
+          },
+          {
+            name: 'Egídio Malema', color: '#1F7AE0', initials: 'EM', img: 'testemunhos/Egidio%20Malema%20Organizacao%20mundial%20da%20saude.jpg', time: '08:49',
+            text: 'Esta comunidade é incrível! Partilho também o meu CV 📎',
+            doc: { name: 'CV - Egídio Malema.pdf', meta: 'PDF · 3 páginas' }
+          }
+        ]
+      },
+      {
+        groupName: 'Oportunidades de Emprego MOZ',
+        groupStatus: '213 membros',
+        day: 'ONTEM',
+        pinned: 'Contratos e vagas verificadas. Mantenham o CV pronto! 📄',
+        messages: [
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '13:40',
+            text: 'Boa tarde! 📢 A UNICEF está a contratar Activistas em Cabo Delgado. Documento em anexo 👇',
+            doc: { name: 'Contratos UNICEF — Cabo Delgado (Activista).pdf', meta: 'PDF · 7 páginas' }
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '13:41',
+            text: '@Marta @Hélder @Délcia falem directamente com o Supervisor de Terreno. Ele indica onde entregar a candidatura 👇'
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '13:41',
+            contact: { name: 'Salomão Nhaca Supervisor UNICEF', img: 'perfis/foto%203.webp' }
+          },
+          {
+            name: 'Marta da Conceição', color: '#C2410C', initials: 'MC', img: '', time: '14:12',
+            text: 'Já enviei os meus documentos por email para a UNICEF — candidatura para Activista em Cabo Delgado 📧'
+          },
+          {
+            name: 'Marta da Conceição', color: '#C2410C', initials: 'MC', img: '', time: '14:12',
+            text: 'Agora é aguardar o contacto deles 🙏 Obrigada pela partilha!'
+          },
+          {
+            name: 'Hélder Machava', color: '#5E35B1', initials: 'HM', img: 'perfis/foto2.jpg', time: '14:38',
+            text: 'Liguei para o Supervisor, fui orientado e já entreguei os documentos 🙏 Obrigado, grupo!'
+          },
+          {
+            name: 'Egídio Malema', color: '#1F7AE0', initials: 'EM', img: '', time: '14:45',
+            text: 'Também me candidatei como Activista. Partilho o comprovativo de entrega 📎',
+            doc: { name: 'Comprovativo - Candidatura UNICEF.pdf', meta: 'PDF · 1 página' }
+          },
+          {
+            name: 'Délcia Sitoe', color: '#43A047', initials: 'DS', img: '', time: '14:52',
+            text: '@Ana Tatiana muito obrigada pelo emprego que consegui graças a si! 🙏 Pode partilhar o seu número de eMola? Quero enviar 10.000 MZN como agradecimento 💚'
+          }
+        ]
+      },
+      {
+        groupName: 'Oportunidades de Emprego MOZ',
+        groupStatus: '213 membros',
+        day: 'SEG.',
+        pinned: 'Partilhem os vossos CVs aqui — empresas estão a recrutar! 📎',
+        messages: [
+          {
+            name: 'Carlos Machango', color: '#1F7AE0', initials: 'CM', img: 'testemunhos/Carlos%20Sail%20Gestor%20de%20vendas.jpg', time: '09:02',
+            text: 'Bom dia! Partilho o meu CV para vagas de logística 📄',
+            doc: { name: 'CV - Carlos Machango.pdf', meta: 'PDF · 2 páginas' }
+          },
+          {
+            name: 'Sónia Júlio', color: '#00838F', initials: 'SJ', img: '', time: '09:11',
+            text: 'Bom dia! O meu também, área administrativa 📎',
+            doc: { name: 'CV - Sónia Júlio.pdf', meta: 'PDF · 1 página' }
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '09:25',
+            text: 'Recebidos! Vou encaminhar os CVs para os contactos de RH das empresas parceiras. Continuem atentos 👀'
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '09:26',
+            text: 'Quem quiser falar directamente, deixo o contacto do gestor de recrutamento. Liguem e serão direccionados 👇'
+          },
+          {
+            name: 'Ana Tatiana', role: 'Administrador', color: '#D9344F', initials: 'AT', img: 'perfis/foto%20de%20perfil%20de%20administradora.jpg', time: '09:26',
+            contact: { name: 'Hélio Munguambe Recrutamento', img: 'perfis/foto%20de%20recrutador.jpg' }
+          },
+          {
+            name: 'Leonardo Sitoe', color: '#6D4C41', initials: 'LS', img: 'perfis/foto%20de%20adminstrador.jpg', time: '09:40',
+            text: 'Já liguei e marcaram-me entrevista para amanhã! Muito obrigado 🙌'
+          },
+          {
+            name: 'Maria Mayanga', color: '#8E24AA', initials: 'MM', img: '', time: '09:58', out: true,
+            text: 'Recomendem à família e a todos os que procuram emprego! A união faz a força 💪 Nada de nepotismo neste grupo 🙏'
+          }
+        ]
+      }
+    ];
+
+    (function renderGroupChats() {
+      const root = document.getElementById('wa-gallery');
+      if (!root) return;
+
+      const esc = s => String(s).replace(/[&<>"]/g, c =>
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      /* @nome → menção azul (depois de escapar o texto) */
+      const fmt = s => esc(s).replace(/@([A-Za-zÀ-ÿ.]+(?:\s[A-ZÀ-Ý][A-Za-zÀ-ÿ.]+)?)/g, '<span class="wa-mention">@$1</span>');
+
+      const avatar = (m, cls) => m.img
+        ? `<img class="${cls}" src="${esc(m.img)}" alt="${esc(m.name)}" style="background:${esc(m.color)}">`
+        : `<span class="${cls}" style="background:${esc(m.color)}">${esc(m.initials || m.name.slice(0,1))}</span>`;
+
+      const tick = `<svg class="wa-tick" width="15" height="11" viewBox="0 0 18 13" fill="none" aria-hidden="true"><path d="M1 7l3.2 3.2L11 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 7l3.2 3.2L16 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+      const pdfIcon = `<span class="wa-doc-icon"><svg width="34" height="40" viewBox="0 0 34 40" aria-hidden="true"><path d="M4 0h18l8 8v30a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" fill="#fff"/><path d="M22 0l8 8h-8V0z" fill="#E4E4E4"/><rect x="2" y="22" width="30" height="13" rx="2" fill="#EB5757"/><text x="17" y="32" font-family="Arial" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">PDF</text></svg></span>`;
+      const docMetaIcon = `<svg width="11" height="11" viewBox="0 0 24 24" fill="#667781" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg>`;
+      const personIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`;
+      const callIcon = `<svg width="13" height="13" viewBox="0 0 24 24" fill="#1EB85A" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.05 15.05 0 01-6.6-6.6l2.2-2.2a1 1 0 00.25-1.01A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>`;
+
+      const groupAvatar = `<span class="wa-header-avatar"><img src="LOGO.jpg" alt="Grupo" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></span>`;
+
+      const renderPanel = (chat) => {
+        const headerHTML = `
+          <div class="wa-header">
+            <svg class="wa-back" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            ${groupAvatar}
+            <div class="wa-header-info">
+              <span class="wa-header-name">${esc(chat.groupName)}</span>
+              <span class="wa-header-status">${esc(chat.groupStatus)}</span>
+            </div>
+            <div class="wa-header-icons">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.05 15.05 0 01-6.6-6.6l2.2-2.2a1 1 0 00.25-1.01A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>
+              <svg width="4" height="18" viewBox="0 0 4 18" fill="#fff" aria-hidden="true"><circle cx="2" cy="2" r="2"/><circle cx="2" cy="9" r="2"/><circle cx="2" cy="16" r="2"/></svg>
+            </div>
+          </div>`;
+
+        const pinnedHTML = chat.pinned ? `
+          <div class="wa-pinned">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 4l6 6-3 3-1 5-3-3-4 4-1-1 4-4-3-3 5-1z"/></svg>
+            <span>${esc(chat.pinned)}</span>
+          </div>` : '';
+
+        const msgs = chat.messages;
+        const msgsHTML = msgs.map((m, i) => {
+          const prev = msgs[i - 1], next = msgs[i + 1];
+          const side = m.out ? 'out' : 'in';
+          const samePrev = prev && (!!prev.out === !!m.out) && (m.out || prev.name === m.name);
+          const sameNext = next && (!!next.out === !!m.out) && (m.out || next.name === m.name);
+          const firstOfGroup = !samePrev;   // primeira mensagem do bloco → mostra nome + bico
+          const lastOfGroup  = !sameNext;    // última do bloco → mostra avatar
+
+          const card = m.card
+            ? `<div class="wa-card"><span class="wa-card-title">${esc(m.card.title)}</span>${m.card.sub ? `<span class="wa-card-sub">${esc(m.card.sub)}</span>` : ''}</div>`
+            : '';
+          const doc = m.doc
+            ? `<div class="wa-doc">${pdfIcon}<div class="wa-doc-info"><span class="wa-doc-name">${esc(m.doc.name)}</span><span class="wa-doc-meta">${docMetaIcon}${esc(m.doc.meta || 'PDF')}</span></div></div>`
+            : '';
+          const contact = m.contact
+            ? `<div class="wa-contact"><div class="wa-contact-top"><span class="wa-contact-avatar">${m.contact.img ? `<img src="${esc(m.contact.img)}" alt="${esc(m.contact.name)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover">` : personIcon}</span><div class="wa-contact-info"><span class="wa-contact-name">${esc(m.contact.name)}</span>${m.contact.role ? `<span class="wa-contact-role">${esc(m.contact.role)}</span>` : ''}</div><span class="wa-contact-time">${esc(m.time || '')}</span></div><div class="wa-contact-actions"><span class="wa-contact-btn">Enviar mensagem</span><span class="wa-contact-btn">Adicionar ao grupo</span></div></div>`
+            : '';
+          const senderLine = (m.out || !firstOfGroup) ? '' :
+            `<span class="wa-sender" style="color:${esc(m.color)}">${esc(m.name)}${m.role ? ` · ${esc(m.role)}` : ''}</span>`;
+          const av = m.out ? '' : (lastOfGroup ? avatar(m, 'wa-avatar') : '<span class="wa-avatar-spacer"></span>');
+          const meta = `<div class="wa-meta"><span class="wa-time">${esc(m.time || '')}</span>${m.out ? tick : ''}</div>`;
+          return `
+            <div class="wa-msg${m.out ? ' out' : ''}${firstOfGroup ? '' : ' grouped'}">
+              ${av}
+              <div class="wa-bubble">
+                ${senderLine}
+                ${m.text ? `<span class="wa-text">${fmt(m.text)}</span>` : ''}
+                ${doc}
+                ${contact}
+                ${card}
+                ${(m.contact && !m.text && !m.doc && !m.card) ? '' : meta}
+              </div>
+            </div>`;
+        }).join('');
+
+        return `<div class="wa-chat">${headerHTML}${pinnedHTML}` +
+          `<div class="wa-body"><div class="wa-day">${esc(chat.day || 'HOJE')}</div>${msgsHTML}</div></div>`;
+      };
+
+      root.innerHTML = GROUP_CHATS.map(renderPanel).join('');
     })();
   </script>
 
